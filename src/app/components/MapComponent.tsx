@@ -2,19 +2,17 @@
 
 import { Box } from '@mui/material';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
+import { LatLngTuple } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const center = [41.8240, -71.4128];
-const riCenter = [41.5801, -71.4774];
-// Centered on Taunton, MA
-const maCenter = [41.9001, -71.0898];
+const center: LatLngTuple = [41.8240, -71.4128];
+const riCenter: LatLngTuple = [41.5801, -71.4774];
+const maCenter: LatLngTuple = [41.9001, -71.0898];
 
-// Both circles around 25km radius for similar coverage
 const serviceRadius = 25000; // in meters
 
 export default function MapComponent() {
   const handleMapClick = () => {
-    // Open Google Maps centered between RI and MA
     window.open(`https://www.google.com/maps/@${center[0]},${center[1]},9z`, '_blank');
   };
 
@@ -70,6 +68,7 @@ export default function MapComponent() {
       onClick={handleMapClick}
     >
       <MapContainer
+        key={`${center[0]}-${center[1]}`}
         center={center}
         zoom={9}
         scrollWheelZoom={false}
@@ -77,8 +76,8 @@ export default function MapComponent() {
         zoomControl={true}
       >
         <TileLayer
-          attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
+          attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
         <Circle
           center={riCenter}

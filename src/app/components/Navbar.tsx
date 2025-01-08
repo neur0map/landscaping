@@ -177,72 +177,77 @@ export default function Navbar() {
           </Stack>
 
           {/* Mobile Menu Button */}
-          <motion.div
-            className="menu-button"
-            initial={false}
-            animate={mobileMenuOpen ? "open" : "closed"}
-            style={{
-              width: 40,
-              height: 40,
-              display: { md: 'none' },
-              position: 'relative',
-              cursor: 'pointer',
-              zIndex: 2,
+          <Box
+            sx={{
+              display: { xs: 'block', md: 'none' }
             }}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <motion.div
+              className="menu-button"
+              initial={false}
+              animate={mobileMenuOpen ? "open" : "closed"}
               style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: 24,
-                height: 2,
-                borderRadius: 1,
-                backgroundColor: 'currentColor',
-                transform: 'translate(-50%, -50%)',
+                width: 40,
+                height: 40,
+                position: 'relative',
+                cursor: 'pointer',
+                zIndex: 2,
               }}
-              variants={{
-                closed: { rotate: 0, y: -6 },
-                open: { rotate: 45, y: 0 },
-              }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: 24,
-                height: 2,
-                borderRadius: 1,
-                backgroundColor: 'currentColor',
-                transform: 'translate(-50%, -50%)',
-              }}
-              variants={{
-                closed: { opacity: 1 },
-                open: { opacity: 0 },
-              }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: 24,
-                height: 2,
-                borderRadius: 1,
-                backgroundColor: 'currentColor',
-                transform: 'translate(-50%, -50%)',
-              }}
-              variants={{
-                closed: { rotate: 0, y: 6 },
-                open: { rotate: -45, y: 0 },
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  width: 24,
+                  height: 2,
+                  borderRadius: 1,
+                  backgroundColor: 'currentColor',
+                  transform: 'translate(-50%, -50%)',
+                }}
+                variants={{
+                  closed: { rotate: 0, y: -6 },
+                  open: { rotate: 45, y: 0 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  width: 24,
+                  height: 2,
+                  borderRadius: 1,
+                  backgroundColor: 'currentColor',
+                  transform: 'translate(-50%, -50%)',
+                }}
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  width: 24,
+                  height: 2,
+                  borderRadius: 1,
+                  backgroundColor: 'currentColor',
+                  transform: 'translate(-50%, -50%)',
+                }}
+                variants={{
+                  closed: { rotate: 0, y: 6 },
+                  open: { rotate: -45, y: 0 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+          </Box>
         </Stack>
 
         {/* Mobile Menu Backdrop */}
@@ -297,7 +302,7 @@ export default function Navbar() {
                     display: { md: 'none' },
                   }}
                 >
-                  {navItems.map((item, i) => (
+                  {navItems.map((item) => (
                     <motion.a
                       key={item.label}
                       href={item.href}

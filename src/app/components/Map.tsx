@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Skeleton } from '@mui/material';
+import { Skeleton } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 

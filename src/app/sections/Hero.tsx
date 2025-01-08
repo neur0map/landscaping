@@ -96,10 +96,6 @@ export default function Hero({ translations }: HeroProps) {
                 <MotionTypography
                   key={i}
                   variant="h1"
-                  component="span"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
                   sx={{
                     display: 'inline-block',
                     mr: '0.5rem',
@@ -120,6 +116,9 @@ export default function Hero({ translations }: HeroProps) {
                     WebkitTextFillColor: 'transparent',
                     textShadow: '0 4px 12px rgba(0,0,0,0.1)',
                   }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   {word}
                 </MotionTypography>
