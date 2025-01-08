@@ -1,0 +1,151 @@
+{
+  "hero": {
+    "title": "M.V. Landscaping",
+    "subtitle": "Professional landscaping services in Rhode Island & Massachusetts. From regular maintenance to complete transformations, we deliver quality results. 🌿",
+    "cta": "Get Your Free Quote"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Professional landscaping services tailored to your needs",
+    "items": {
+      "lawn_mowing": {
+        "title": "Lawn Mowing",
+        "description": "Professional lawn maintenance to keep your yard looking pristine year-round."
+      },
+      "cleanups": {
+        "title": "Spring & Fall Cleanups",
+        "description": "Comprehensive seasonal cleanup services to prepare your landscape for the changing seasons."
+      },
+      "pruning": {
+        "title": "Pruning",
+        "description": "Expert pruning services to maintain the health and appearance of your trees and shrubs."
+      },
+      "planting": {
+        "title": "Planting",
+        "description": "Professional planting services to enhance your landscape with new vegetation."
+      },
+      "mulching": {
+        "title": "Mulching",
+        "description": "Quality mulch installation to protect your plants and enhance your landscape's appearance."
+      },
+      "materials": {
+        "title": "Materials & Ground Cover",
+        "description": "Premium loam and stone installation for your landscaping needs."
+      },
+      "dethatching": {
+        "title": "Dethatching",
+        "description": "Professional dethatching services to maintain a healthy lawn."
+      },
+      "junk_removal": {
+        "title": "Junk Removal",
+        "description": "Efficient removal of yard waste and landscaping debris."
+      }
+    }
+  },
+  "projects": {
+    "title": "Our Work",
+    "subtitle": "Take a look at some of our recent landscaping projects",
+    "items": {
+      "lawn_transformation": {
+        "title": "Complete Lawn Renovation",
+        "category": "Residential",
+        "description": "Full lawn restoration with new sod installation and landscape design."
+      },
+      "garden_design": {
+        "title": "Custom Garden Design",
+        "category": "Residential",
+        "description": "Beautiful garden creation with mixed perennials and seasonal flowers."
+      },
+      "hardscape": {
+        "title": "Stone Pathway & Gardens",
+        "category": "Residential",
+        "description": "Custom stone walkway installation with complementary garden beds."
+      },
+      "backyard_makeover": {
+        "title": "Backyard Transformation",
+        "category": "Residential",
+        "description": "Complete backyard redesign with new lawn, plants, and mulch beds."
+      },
+      "spring_cleanup": {
+        "title": "Spring Cleanup & Mulching",
+        "category": "Maintenance",
+        "description": "Seasonal cleanup with fresh mulch installation and bed maintenance."
+      },
+      "landscape_design": {
+        "title": "Professional Landscaping",
+        "category": "Residential",
+        "description": "Full-service landscape design with premium materials and plants."
+      },
+      "mulch_installation": {
+        "title": "Premium Mulch Service",
+        "category": "Maintenance",
+        "description": "Quality mulch installation with precise edging and weed prevention."
+      },
+      "stone_work": {
+        "title": "Decorative Stone Work",
+        "category": "Hardscape",
+        "description": "Custom stone installation with professional grade materials."
+      },
+      "lawn_care": {
+        "title": "Expert Lawn Care",
+        "category": "Maintenance",
+        "description": "Regular lawn maintenance keeping your property looking its best."
+      }
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "Simple and efficient approach to serve your landscaping needs",
+    "steps": {
+      "estimate": {
+        "title": "Free Estimate",
+        "description": "Contact us for a free, no-obligation estimate for your landscaping needs."
+      },
+      "schedule": {
+        "title": "Schedule Service",
+        "description": "We'll work with you to schedule a convenient time for your service."
+      },
+      "service": {
+        "title": "Professional Service",
+        "description": "Our experienced team will complete your landscaping work with attention to detail."
+      },
+      "satisfaction": {
+        "title": "Quality Assurance",
+        "description": "We ensure your complete satisfaction with our professional service."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "subtitle": "Get your free estimate today and let's make your outdoor space amazing! 🌿",
+    "form": {
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Tell us about your project",
+      "submit": "Get Free Estimate"
+    },
+    "info": {
+      "phone": {
+        "title": "Call or Text",
+        "content": "(401) 644-0452"
+      },
+      "email": {
+        "title": "Drop us a line",
+        "content": "mvlandscaping7@gmail.com"
+      },
+      "address": {
+        "title": "Service Areas",
+        "content": "Rhode Island & Massachusetts"
+      }
+    }
+  }
+} 
