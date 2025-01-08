@@ -1,7 +1,6 @@
 'use client';
 
-import { AppBar, Box, Container, IconButton, Stack, Typography, useScrollTrigger } from '@mui/material';
-import { Menu, X } from 'lucide-react';
+import { AppBar, Box, Container, Stack, Typography, useScrollTrigger } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
