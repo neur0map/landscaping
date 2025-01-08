@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Grid, Typography, TextField, Button } from '@mui/material';
+import { Box, Container, Grid, Typography, TextField, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import Map from '../components/Map';
@@ -88,40 +88,115 @@ export default function Contact({ translations }: ContactProps) {
 
   return (
     <Box
-      id="contact"
       component="section"
+      id="contact"
       sx={{
         py: { xs: 8, md: 12 },
         background: 'linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)',
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+            sx={{
+              fontWeight: 700,
+              mb: 1,
+              background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
           >
-            <Typography
-              variant="h2"
-              gutterBottom
-              sx={{
-                fontWeight: 700,
-                background: (theme) => `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              {translations.title}
-            </Typography>
-            <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              {translations.subtitle}
-            </Typography>
-          </motion.div>
-        </Box>
+            {translations.title}
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            sx={{ mb: 8, maxWidth: '800px', mx: 'auto' }}
+          >
+            {translations.subtitle}
+          </Typography>
+        </motion.div>
 
-        <Grid container spacing={6}>
-          <Grid item xs={12} md={6}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Stack spacing={3}>
+              <ContactInfo
+                icon={Phone}
+                title={translations.info.phone.title}
+                content={translations.info.phone.content}
+              />
+              <ContactInfo
+                icon={Mail}
+                title={translations.info.email.title}
+                content={translations.info.email.content}
+              />
+              <ContactInfo
+                icon={MapPin}
+                title={translations.info.address.title}
+                content={translations.info.address.content}
+              />
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <Box
+                  sx={{
+                    mt: 4,
+                    p: 3,
+                    borderRadius: 2,
+                    border: '2px solid',
+                    borderColor: 'primary.main',
+                    background: 'linear-gradient(45deg, rgba(26, 35, 126, 0.05), rgba(13, 71, 161, 0.05))',
+                    textAlign: 'center',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: (theme) => theme.shadows[4],
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{
+                      fontWeight: 600,
+                      color: 'primary.main',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 1,
+                    }}
+                  >
+                    🗣️ We Speak Spanish
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontStyle: 'italic',
+                      color: 'text.secondary',
+                    }}
+                  >
+                    ¡Hablamos Español!
+                  </Typography>
+                </Box>
+              </motion.div>
+            </Stack>
+          </Grid>
+
+          <Grid item xs={12} md={8}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -187,33 +262,6 @@ export default function Contact({ translations }: ContactProps) {
                 </Button>
               </Box>
             </motion.div>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <ContactInfo
-                icon={Phone}
-                title={translations.info.phone.title}
-                content={translations.info.phone.content}
-              />
-              <ContactInfo
-                icon={Mail}
-                title={translations.info.email.title}
-                content={translations.info.email.content}
-              />
-              <ContactInfo
-                icon={MapPin}
-                title={translations.info.address.title}
-                content={translations.info.address.content}
-              />
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <Map />
-              </motion.div>
-            </Box>
           </Grid>
         </Grid>
       </Container>
