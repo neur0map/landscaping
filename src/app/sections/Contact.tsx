@@ -3,7 +3,6 @@
 import { Box, Container, Grid, Typography, TextField, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import Map from '../components/Map';
 
 interface ContactInfoProps {
   icon: React.ElementType;
