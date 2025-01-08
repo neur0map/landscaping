@@ -1,9 +1,9 @@
 'use client';
 
 import { Box, Container, Grid, Typography, Card, CardContent, CardMedia, Modal, IconButton } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { X, Expand } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const projectImages = {
   lawn_transformation: '/images/samples/IMG_6681.jpeg',
@@ -28,14 +28,27 @@ interface ProjectCardProps {
 
 function ProjectCard({ project, image }: ProjectCardProps) {
   const [modalOpen, setModalOpen] = useState(false);
+  const cardRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
 
   return (
     <>
       <motion.div
+        ref={cardRef}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
+        style={{
+          scale,
+          opacity,
+        }}
       >
         <Card
           sx={{
@@ -48,15 +61,6 @@ function ProjectCard({ project, image }: ProjectCardProps) {
             '&:hover': {
               transform: 'translateY(-8px)',
               boxShadow: (theme) => theme.shadows[8],
-              '& .MuiCardMedia-root': {
-                transform: 'scale(1.1)',
-              },
-              '& .expand-overlay': {
-                opacity: { xs: 0.8, md: 1 },
-              },
-              '& .expand-hint': {
-                transform: 'translateY(0)',
-              },
             },
           }}
         >
@@ -211,41 +215,73 @@ interface ProjectsProps {
 }
 
 export default function Projects({ translations }: ProjectsProps) {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.6, 1, 1, 0.6]);
+
   if (!translations) return null;
 
   return (
     <Box
-      id="projects"
+      ref={sectionRef}
       component="section"
+      id="projects"
       sx={{
         py: { xs: 8, md: 12 },
-        background: 'linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)',
+        background: 'linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%)',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 100%)',
+          y,
+          opacity,
+        }}
+      />
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+            sx={{
+              fontWeight: 700,
+              mb: 1,
+              background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textAlign: 'center',
+            }}
           >
-            <Typography
-              variant="h2"
-              gutterBottom
-              sx={{
-                fontWeight: 700,
-                background: 'linear-gradient(45deg, #2E7D32, #4CAF50)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              {translations.title}
-            </Typography>
-            <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              {translations.subtitle}
-            </Typography>
-          </motion.div>
-        </Box>
+            {translations?.title || 'Our Work'}
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            sx={{ mb: 8, maxWidth: '800px', mx: 'auto' }}
+          >
+            {translations?.subtitle || 'Take a look at some of our recent landscaping projects'}
+          </Typography>
+        </motion.div>
 
         <Grid container spacing={4}>
           {Object.entries(translations.items).map(([key, project]) => (
